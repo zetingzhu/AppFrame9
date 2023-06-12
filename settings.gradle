@@ -10,3 +10,11 @@ rootProject.name = "AppFrame9"
 include ':app'
 include ':zt-fragmentscreenact'
 include ':zt-apprightcount'
+include ':zt-vp2-rv'
+include ':zt-websocket'
+include ':zt-rv-hsc'
+include ':zt-hook'
+include ':zt-logtolocal'
+include ':zt-bigdecimal'
+
+include ':zt-queueList'

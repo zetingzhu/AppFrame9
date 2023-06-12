@@ -8,17 +8,47 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="有没有通知权限"
+        android:textSize="22sp" />
 
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="角标数量"
+        android:inputType="number"
+        android:text="6" />
 
-        />
+    <Button
+        android:id="@+id/btn_b0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除应用角标" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="显示应用右上角角标数量" />
 
+    <Button
+        android:id="@+id/btn_b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="检查，打开通知权限" />
+
+    <Button
+        android:id="@+id/btn_b4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oppo 设置角标" />
 </LinearLayout>
