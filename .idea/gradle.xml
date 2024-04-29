@@ -8,16 +8,26 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../Program Files/Android/GradleZZT/gradle-7.0.2" />
-        <option name="gradleJvm" value="11" />
+        <option name="gradleJvm" value="corretto-11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/zt-apprightcount" />
+            <option value="$PROJECT_DIR$/zt-bigdecimal" />
+            <option value="$PROJECT_DIR$/zt-filesample" />
             <option value="$PROJECT_DIR$/zt-fragmentscreenact" />
+            <option value="$PROJECT_DIR$/zt-hook" />
+            <option value="$PROJECT_DIR$/zt-json" />
+            <option value="$PROJECT_DIR$/zt-logtolocal" />
+            <option value="$PROJECT_DIR$/zt-permiss" />
+            <option value="$PROJECT_DIR$/zt-queueList" />
+            <option value="$PROJECT_DIR$/zt-rv-hsc" />
+            <option value="$PROJECT_DIR$/zt-updatalocale" />
+            <option value="$PROJECT_DIR$/zt-vp2-rv" />
+            <option value="$PROJECT_DIR$/zt-websocket" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

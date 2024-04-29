@@ -3,6 +3,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
@@ -18,3 +21,7 @@ include ':zt-logtolocal'
 include ':zt-bigdecimal'
 
 include ':zt-queueList'
+include ':zt-filesample'
+include ':zt-permiss'
+include ':zt-json'
+include ':zt-updatalocale'

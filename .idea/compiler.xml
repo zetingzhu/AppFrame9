@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="AppFrame9.app" target="11" />
+      <module name="AppFrame9.zt-apprightcount" target="11" />
+      <module name="AppFrame9.zt-bigdecimal" target="11" />
+      <module name="AppFrame9.zt-filesample" target="11" />
+      <module name="AppFrame9.zt-fragmentscreenact" target="11" />
+      <module name="AppFrame9.zt-hook" target="11" />
+      <module name="AppFrame9.zt-json" target="11" />
+      <module name="AppFrame9.zt-logtolocal" target="11" />
+      <module name="AppFrame9.zt-permiss" target="11" />
+      <module name="AppFrame9.zt-rv-hsc" target="11" />
+      <module name="AppFrame9.zt-updatalocale" target="11" />
+      <module name="AppFrame9.zt-vp2-rv" target="11" />
+      <module name="AppFrame9.zt-websocket" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
