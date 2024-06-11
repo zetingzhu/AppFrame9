@@ -16,6 +16,39 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initData(getBaseContext());
+
+        getMemoryInfo();
+    }
+
+
+    /**
+     * 获取内存信息
+     */
+    public void getMemoryInfo() {
+        Log.d(TAG, "WSLru-Socket内存 最大可用内存:" + (Runtime.getRuntime().maxMemory() / (1024 * 1024)) + "M");
+        Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
+        Debug.getMemoryInfo(memoryInfo);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            String javaHeap = memoryInfo.getMemoryStat("summary.java-heap");
+            String nativeHeap = memoryInfo.getMemoryStat("summary.native-heap");
+            String code = memoryInfo.getMemoryStat("summary.code");
+            String stack = memoryInfo.getMemoryStat("summary.stack");
+            String graphics = memoryInfo.getMemoryStat("summary.graphics");
+            String privateOther = memoryInfo.getMemoryStat("summary.private-other");
+            String system = memoryInfo.getMemoryStat("summary.system");
+            String swap = memoryInfo.getMemoryStat("summary.total-swap");
+            int totalPss = memoryInfo.getTotalPss();
+
+            Log.w(TAG, "WSLru-Socket内存 3 已使用内存: " + (totalPss / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 javaHeap: " + ((Integer.parseInt(javaHeap) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 nativeHeap: " + ((Integer.parseInt(nativeHeap) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 code: " + ((Integer.parseInt(code) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 stack: " + ((Integer.parseInt(stack) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 graphics: " + ((Integer.parseInt(graphics) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 privateOther: " + ((Integer.parseInt(privateOther) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 system: " + ((Integer.parseInt(system) * 1.0) / 1024));
+            Log.w(TAG, "WSLru-Socket内存 3 swap: " + ((Integer.parseInt(swap) * 1.0) / 1024));
+        }
     }
 
     private void initData(Context context) {
@@ -32,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
         //3. 外部存储,公共目录
         Log.d(TAG, "目录 ： " + Environment.getExternalStorageDirectory());
+        Log.d(TAG, "目录 ： " + context.getExternalFilesDir(""));
+
+
+        Log.d(TAG, "目录"
+                + "\n 1:" + context.getFilesDir()
+                + "\n 6:" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                + "\n 7:" + Environment.getExternalStorageDirectory()
+                + "\n 8:" + context.getExternalMediaDirs()
+        );
+
     }
 
     private void initView() {
