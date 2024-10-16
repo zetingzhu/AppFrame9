@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.zzt.zt_facebooklogin'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.zzt.zt_facebooklogin"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+//        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        debugSign {
+            storeFile file('/key/fb123.jks')
+            storePassword '123456'
+            keyAlias 'fb123'
+            keyPassword '123456'
+        }
+    }
+    buildTypes {
+        // 这个也要有
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debugSign
+        }
+
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debugSign
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+//    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    implementation 'com.facebook.android:facebook-android-sdk:13.0.0'
+}
