@@ -1,0 +1,20 @@
+<resources>
+    <declare-styleable name="MTextInputLayoutV2">
+        <!-- 密码眼睛是否可用的属性 -->
+        <attr name="mPasswordToggleEnabled" format="boolean" />
+        <!-- 设置密码眼睛图片的属性 -->
+        <attr name="mPasswordToggleDrawable" format="reference" />
+        <!-- 删除按钮是否可用的属性 -->
+        <attr name="mClearEnabled" format="boolean" />
+        <!-- 设置删除按钮图片的属性 -->
+        <attr name="mClearDrawable" format="reference" />
+        <!-- 错误颜色的属性 -->
+        <attr name="mErrorTextColor" format="color" />
+        <!-- 错误字体大小的属性 -->
+        <attr name="mErrorTextSize" format="dimension" />
+        <!-- 输入框背景的属性 -->
+        <attr name="mEditTextBGDrawable" format="reference" />
+        <!-- 输入框内文字颜色的属性 -->
+        <attr name="mEditTextTextColor" format="color" />
+    </declare-styleable>
+</resources>    

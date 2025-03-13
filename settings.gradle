@@ -1,11 +1,12 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         google()
         mavenCentral()
-
         maven { url 'https://jitpack.io' }
-
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
@@ -28,3 +29,4 @@ include ':zt-updatalocale'
 include ':zt-flow'
 include ':zt-facebooklogin'
 include ':zt-flexboxlayout'
+include ':zt-inputtext'

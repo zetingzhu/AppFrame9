@@ -1,0 +1,4 @@
+<resources>
+    <!-- 定义默认的错误文本大小 -->
+    <dimen name="default_error_text_size">12sp</dimen>
+</resources>    

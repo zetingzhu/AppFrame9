@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkgray"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btn_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="错误信息" />
+    <!-- 使用自定义的密码输入框 -->
+    <com.example.view.MTextInputLayoutV2
+        android:id="@+id/customPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:mClearDrawable="@drawable/common_gray_clear_text_icon"
+        app:mClearEnabled="true"
+        app:mEditTextBGDrawable="@drawable/bg_r_0_b_ffffff"
+        app:mEditTextTextColor="@color/blue"
+        app:mErrorTextColor="@color/color_F42855"
+        app:mErrorTextSize="14sp"
+        app:mPasswordToggleDrawable="@drawable/login_password_show_or_hide"
+        app:mPasswordToggleEnabled="true" />
+
+</LinearLayout>    
