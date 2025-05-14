@@ -6,7 +6,7 @@
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="corretto-11" />
+        <option name="gradleJvm" value="17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/zt-permiss" />
             <option value="$PROJECT_DIR$/zt-queueList" />
             <option value="$PROJECT_DIR$/zt-rv-hsc" />
+            <option value="$PROJECT_DIR$/zt-textview-spanutil" />
             <option value="$PROJECT_DIR$/zt-updatalocale" />
             <option value="$PROJECT_DIR$/zt-vp2-rv" />
             <option value="$PROJECT_DIR$/zt-websocket" />

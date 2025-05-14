@@ -53,6 +53,9 @@
       <SelectionState runConfigName="zt-inputtext">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="zt-textview-spanutil">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

@@ -1,9 +1,14 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+
+        // 阿里云镜像（优先）
+        maven { url 'https://maven.aliyun.com/repository/google' }       // Android 官方库
+        maven { url 'https://maven.aliyun.com/repository/central' }     // Maven 中央库
+
+        // 添加腾讯云镜像仓库（优先使用）
+        maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
@@ -30,3 +35,4 @@ include ':zt-flow'
 include ':zt-facebooklogin'
 include ':zt-flexboxlayout'
 include ':zt-inputtext'
+include ':zt-textview-spanutil'
