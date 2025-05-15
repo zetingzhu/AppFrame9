@@ -23,3 +23,6 @@ zt-queueList 固定队列，添加一个元素，移除一个最早元素
 [zt-flow](zt-flow) 协程和 flow 做个异步处理工具类
 
 [zt-flexboxlayout](zt-flexboxlayout)  flexboxlayout 流动布局简单使用
+
+[zt-textview-spanutil](zt-textview-spanutil)
+修改长文本，给前两个字符添加背景色
