@@ -6,6 +6,59 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <Button
+        android:id="@+id/btn_start_stop_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开动画" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_anim_start"
+            android:layout_width="50.dp"
+            android:layout_height="50.dp"
+            android:background="@color/teal_200"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_anim_start_1"
+            android:layout_width="50.dp"
+            android:layout_height="50.dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/teal_200"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_anim"
+            android:layout_width="50.dp"
+            android:layout_height="50.dp"
+            android:layout_gravity="center"
+            android:background="#083BD3"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_anim_end"
+            android:layout_width="50.dp"
+            android:layout_height="50.dp"
+            android:layout_gravity="end"
+            android:background="#7014F0"
+            android:orientation="vertical" />
+        <LinearLayout
+            android:id="@+id/ll_anim_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="70.dp"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="end"
+            android:background="#7014F0"
+            android:orientation="vertical" />
+
+    </FrameLayout>
+
     <TextView
         android:id="@+id/long_text_view"
         android:layout_width="wrap_content"
@@ -19,6 +72,7 @@
         android:layout_height="wrap_content"
         android:text="这是一段很长的文本内容，我们需要给前两个字符添加圆角背景色效果。"
         android:textSize="30sp" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"

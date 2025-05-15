@@ -1,5 +1,8 @@
 package com.example.zt_textview_spanutil;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +14,12 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -36,6 +45,169 @@ public class MainActivityTT extends AppCompatActivity {
 
         initView2();
         initView3();
+
+        LinearLayout ll_anim = findViewById(R.id.ll_anim);
+        startRockingAnimation(ll_anim);
+
+
+        LinearLayout ll_anim_start = findViewById(R.id.ll_anim_start);
+        LinearLayout ll_anim_start_1 = findViewById(R.id.ll_anim_start_1);
+        LinearLayout ll_anim_end = findViewById(R.id.ll_anim_end);
+        LinearLayout ll_anim_bottom = findViewById(R.id.ll_anim_bottom);
+        Button btn_start_stop_anim = findViewById(R.id.btn_start_stop_anim);
+        btn_start_stop_anim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ll_anim_start.getVisibility() == View.VISIBLE) {
+                    slideOutToLeft(ll_anim_start, true);
+                    slideOutToRight(ll_anim_end);
+                    slideOutToLeft(ll_anim_start_1, false);
+                    slideOutToBottom(ll_anim_bottom);
+
+                } else {
+                    slideInFromLeft(ll_anim_start);
+                    slideInFromRight(ll_anim_end);
+                    slideInFromLeft(ll_anim_start_1);
+                    slideInFromBottom(ll_anim_bottom);
+
+                }
+            }
+        });
+    }
+
+    public static void slideInFromLeft(View view) {
+        // 先将视图移动到左边屏幕外
+        view.setTranslationX(-view.getWidth());
+        view.setVisibility(View.VISIBLE);
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationX", 0f);
+        animator.setDuration(300);
+        animator.setInterpolator(new DecelerateInterpolator());
+        animator.start();
+    }
+
+    public static void slideOutToLeft(View view, boolean canGone) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view,
+                "translationX", -view.getWidth());
+        animator.setDuration(300);
+        animator.setInterpolator(new AccelerateInterpolator());
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                if (canGone) {
+                    view.setVisibility(View.GONE); // 动画结束后隐藏视图
+                }
+            }
+        });
+        animator.start();
+    }
+
+    public static void slideInFromRight(View view) {
+        // 先将视图移动到右边屏幕外
+        view.setTranslationX(view.getWidth());
+        view.setVisibility(View.VISIBLE);
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationX", 0f);
+        animator.setDuration(300);
+        animator.setInterpolator(new DecelerateInterpolator()); // 减速效果
+        animator.start();
+    }
+
+    public static void slideOutToRight(View view) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view,
+                "translationX", view.getWidth());
+        animator.setDuration(300);
+        animator.setInterpolator(new AccelerateInterpolator()); // 加速效果
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
+                view.setTranslationX(0); // 重置位置
+            }
+        });
+        animator.start();
+    }
+
+
+    ObjectAnimator animator;
+
+    public void startRockingAnimation(View view) {
+        // 设置视图的旋转中心为自身中心（默认就是中心，无需特别设置）
+
+        // 创建旋转动画
+        animator = ObjectAnimator.ofFloat(view, "rotation", -15f, 15f);
+
+        // 设置动画属性
+        animator.setDuration(200); // 单次动画时长1秒
+        animator.setRepeatCount(ObjectAnimator.INFINITE); // 无限重复
+        animator.setRepeatMode(ObjectAnimator.REVERSE); // 往复模式
+        animator.setInterpolator(new AccelerateDecelerateInterpolator()); // 加减速插值器
+        // 开始动画
+        animator.start();
+    }
+
+    public static void slideInFromBottom(View view) {
+        // 先将视图移动到屏幕下方外
+        view.setTranslationY(view.getHeight());
+        view.setVisibility(View.VISIBLE);
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationY", 0f);
+        animator.setDuration(300);
+        animator.setInterpolator(new DecelerateInterpolator()); // 减速效果
+        animator.start();
+    }
+
+    public static void slideOutToBottom(View view) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view,
+                "translationY", view.getHeight());
+        animator.setDuration(300);
+        animator.setInterpolator(new AccelerateInterpolator()); // 加速效果
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
+                view.setTranslationY(0); // 重置位置
+            }
+        });
+        animator.start();
+    }
+
+    private void pauseAnimation() {
+        if (animator != null && animator.isRunning()) {
+            animator.pause();
+        }
+    }
+
+    private void resumeAnimation() {
+        if (animator != null) {
+            if (animator.isPaused()) {
+                animator.resume();
+            } else if (!animator.isRunning()) {
+                // 如果既没运行也没暂停(比如首次启动)
+                animator.start();
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pauseAnimation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resumeAnimation();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (animator != null) {
+            animator.cancel();
+        }
     }
 
     private void initView() {
